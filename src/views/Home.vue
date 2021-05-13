@@ -5,12 +5,13 @@
       <div>
         <silde-bar icon-id="icon-modular" icon-color="text-warning" icon-size="40">Welcome to here</silde-bar>
       </div>
-      <div>
+      <div class="w-100">
         <content-head>
           <template #title>I'M</template>
           <template #desc>Mark</template>
           <template #calc>您已被点赞300次</template>
         </content-head>
+        <router-view></router-view>
       </div>
       <user-profile :src="src"/>
     </div>

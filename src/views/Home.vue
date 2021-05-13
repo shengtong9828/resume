@@ -3,26 +3,36 @@
   <div class="home">
     <div class="wrapper">
       <div>
-        <my-icon id="icon-modular" color="text-warning" size="45" class="network"></my-icon>
-        <div class="text">Welcome to here</div>
+        <silde-bar icon-id="icon-modular" icon-color="text-warning" icon-size="40">Welcome to here</silde-bar>
       </div>
       <div>
-        <div class="content-head">
-          <div>
-            <h1>I'M</h1>
-            <h1>Mark</h1>
-          </div>
-          <h6>您已被赞300次</h6>
-        </div>
+        <content-head>
+          <template #title>I'M</template>
+          <template #desc>Mark</template>
+          <template #calc>您已被点赞300次</template>
+        </content-head>
       </div>
-      <img src="../assets/img/wr-user.png" alt="用户头像" class="user-profile img-thumbnail">
+      <user-profile :src="src"/>
     </div>
   </div>
 </template>
 
 <script>
+import userProfile from '@/components/user-profile/user-profile.vue';
+import sildeBar from '@/components/silde-bar/silde-bar.vue';
+import contentHead from '@/components/content-head/content-head.vue';
 export default {
-
+  name: "Home",
+  components: {
+    userProfile,
+    sildeBar,
+    contentHead
+  },
+  setup() {
+    return {
+      src: require('../assets/img/wr-user.png')
+    }
+  }
 }
 </script>
 
@@ -42,49 +52,5 @@ export default {
   top: calc(50% - 85vh / 2);
   display: flex;
   justify-content: space-between;
-}
-
-.user-profile {
-  min-width: 350px;
-  height: 85vh;
-}
-
-.newwork {
-  width: 4vw;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.text {
-  width: 4vw;
-  height: 75vh;
-  font-size: 30px;
-  color: rgb(255, 291, 191);
-  background-color: rgba(52, 57, 92, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: vertical-lr;
-}
-
-.content-head {
-  widows: 100%;
-  height: 20vh;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.content-head > div {
-  display: flex;
-}
-
-.content-head > div > h1:nth-child(2) {
-  color: rgb(6, 255, 247);
-  margin-left: 10px;
 }
 </style>

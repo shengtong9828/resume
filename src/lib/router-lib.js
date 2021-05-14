@@ -25,7 +25,19 @@ const pathToSign = () => {
     }
 }
 
+const quitStatus = () => {
+    const router = useRouter();
+    const showStatus = computed(() => {
+      const { path } = router.currentRoute.value;
+      return path === "/" ? false : true;
+    });
+    return {
+        showStatus
+    }
+}
+
 export {
     routerJump,
-    pathToSign
+    pathToSign,
+    quitStatus
 }

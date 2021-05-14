@@ -7,8 +7,8 @@
       </div>
       <div class="w-100">
         <content-head>
-          <template #title>I'M</template>
-          <template #desc>Mark</template>
+          <template #title>{{ title }}</template>
+          <template #desc>{{ desc }}</template>
           <template #calc>您已被点赞300次</template>
         </content-head>
         <transition enter-active-class="animate__animated animate__zoomIn">
@@ -24,6 +24,7 @@
 import userProfile from '@/components/user-profile/user-profile.vue';
 import sildeBar from '@/components/silde-bar/silde-bar.vue';
 import contentHead from '@/components/content-head/content-head.vue';
+import { pathToSign } from '../lib/router-lib.js';
 export default {
   name: "Home",
   components: {
@@ -32,8 +33,29 @@ export default {
     contentHead
   },
   setup() {
+    // const router = useRouter();
+    // const title = ref("I'M");
+    // const desc = ref("Mask");
+
+    // watch(router.currentRoute, ({path, name}) => {
+    //   title.value = path === "/" ? "I'M" : "";
+    //   desc.value = path === "/" ? "Mask" : name;
+    // }, {
+    //   immediate: true
+    // });
+    
+    // watchEffect (() => {
+    //   const { path, name } = router.currentRoute.value;
+    //   title.value = path === "/" ? "I'M" : "";
+    //   desc.value = path === "/" ? "Mask" : name;
+    // });
+
+    const { title, desc } = pathToSign();
+
     return {
-      src: require('../assets/img/wr-user.png')
+      src: require('../assets/img/wr-user.png'),
+      title,
+      desc
     }
   }
 }

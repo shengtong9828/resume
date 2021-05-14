@@ -1,3 +1,4 @@
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 const routerJump = () => {
@@ -8,6 +9,23 @@ const routerJump = () => {
     };
 };
 
+const pathToSign = () => {
+    const router = useRouter();
+    const title = computed(() => {
+      const { path } = router.currentRoute.value;
+      return path === "/" ? "I'M" : "";
+    });
+    const desc = computed(() => {
+      const { path, name } = router.currentRoute.value;
+      return desc.value = path === "/" ? "Mask" : name;
+    });
+    return {
+        title,
+        desc
+    }
+}
+
 export {
-    routerJump
+    routerJump,
+    pathToSign
 }

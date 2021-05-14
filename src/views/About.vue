@@ -1,11 +1,11 @@
 <template>
-  <div class="resume">resume</div>
+    <div class="about">about</div>
 </template>
 <script>
 export default {};
 </script>
 <style scoped>
-.resume {
-  color: white;
+.about {
+    color: white;
 }
 </style>

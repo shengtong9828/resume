@@ -11,7 +11,9 @@
           <template #desc>Mark</template>
           <template #calc>您已被点赞300次</template>
         </content-head>
-        <router-view></router-view>
+        <transition enter-active-class="animate__animated animate__zoomIn">
+          <router-view></router-view>
+        </transition>
       </div>
       <user-profile :src="src"/>
     </div>
